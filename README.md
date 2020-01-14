@@ -43,3 +43,13 @@ Below podman command injects environment variables into the container rhel7 usin
 ```
 sudo podman run -e VAR1=Hello -e VAR2=World rhel7:7.5 printenv VAR1 VAR2
 ```
+
+To download a mysql image from the repo, and start it by providing a "--name" and some environment variables
+```
+sudo podman run --name mysql-basic -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 -d rhscl/mysql-57-rhel7:5.7-3.14
+```
+
+To check if the images are running, the below commands lists the state of each container even if its been recently stopped. 
+```
+sudo podman ps -a -q
+```
