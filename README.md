@@ -49,7 +49,22 @@ To download a mysql image from the repo, and start it by providing a "--name" an
 sudo podman run --name mysql-basic -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 -d rhscl/mysql-57-rhel7:5.7-3.14
 ```
 
-To check if the images are running, the below commands lists the state of each container even if its been recently stopped. 
+To check if the containers are running, the below commands lists the state of each container even if its been recently stopped. 
 ```
 sudo podman ps -a -q
+```
+
+To stop a container issue the following command
+```
+sudo podman stop $(sudo podman ps -a -q)
+```
+
+To remove the containers from the list
+```
+docker rm $(docker ps -a -q)
+```
+
+To remove the images from the local repository
+```
+docker rmi image-name
 ```
