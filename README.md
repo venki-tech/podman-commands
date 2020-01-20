@@ -54,6 +54,11 @@ To download a mysql image from the repo, and start it by providing a "--name" an
 sudo podman run --name mysql-basic -e MYSQL_USER=user1 -e MYSQL_PASSWORD=mypa55 -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=r00tpa55 -d rhscl/mysql-57-rhel7:5.7-3.14
 ```
 
+To execute command in detached mode
+```
+sudo podman exec mysql /bin/bash -c 'mysql -uuser1 -p -e "select * from items.Projects;"'
+```
+
 This command starts the Apache HTTP server in the background and returns to the Bash prompt.
 ```
 sudo podman run --name httpd-basic -p 8080:80 -d redhattraining/httpd-parent:2.4
