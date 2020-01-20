@@ -64,6 +64,11 @@ To check if the containers are running, the below commands lists the state of ea
 sudo podman ps -a -q
 ```
 
+To check if the container is running but display on required fields
+```
+sudo podman ps -a --format="table {{.ID}} {{.Names}} {{.Status}}"
+```
+
 To stop a container issue the following command
 ```
 sudo podman stop $(sudo podman ps -a -q)
