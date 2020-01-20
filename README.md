@@ -34,6 +34,11 @@ Check the internal IP address for the running container. The -l flag means the l
 sudo podman inspect -l -f "{{.NetworkSettings.IPAddress}}"
 ```
 
+Check the internal IP of a specific continer , where in this example the container name is mysql
+```
+sudo podman inspect -f '{{ .NetworkSettings.IPAddress }}' mysql
+```
+
 The following example starts a Bash terminal inside the container, and interactively runs some commands in it:
 ```
 sudo podman run -it ubi7/ubi:7.7 /bin/bash
